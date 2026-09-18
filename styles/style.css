@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background-color: #0d091c;
+}
+
+.invitation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.envelope-card {
+  position: relative;
+  width: min(90vw, 800px);
+  cursor: pointer;
+}
+
+.env-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.img-opening,
+.img-open {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.state-closed .img-closed {
+  opacity: 1;
+}
+
+.state-opening .img-closed {
+  opacity: 0;
+}
+.state-opening .img-opening {
+  opacity: 1;
+}
+
+.state-open .img-closed,
+.state-open .img-opening {
+  opacity: 0;
+}
+.state-open .img-open {
+  opacity: 1;
+  transform: scale(1.03);
+}
