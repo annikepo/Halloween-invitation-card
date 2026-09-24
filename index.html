@@ -3,20 +3,105 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Halloween party invitation for 31 October."
+  >
+
   <title>Halloween Party Invitation</title>
+
+  <!-- Requirement: normalize browser default styles. -->
+  <link rel="stylesheet" href="styles/normalize.css">
+
+  <!-- Requirement: external Animate.css library. -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  >
+
   <link rel="stylesheet" href="styles/style.css">
 </head>
-<body>
 
+<body>
   <main class="invitation-container">
-    <div id="envelopeCard" class="envelope-card state-closed">
-    
-      <img src="images/1.svg" class="env-img img-closed" alt="Closed Envelope">
-      <img src="images/2.svg" class="env-img img-opening" alt="Opening Envelope">
-      <img src="images/3.svg" class="env-img img-open" alt="Opened Invitation">
-    </div>
+    <section
+      id="envelopeCard"
+      class="invitation-card state-closed"
+      aria-label="Halloween party invitation"
+    >
+      <!-- Requirement: external SVG images linked with img elements. -->
+      <div class="envelope-stage" aria-hidden="true">
+        <img
+          class="envelope-image image-closed"
+          src="images/1.svg"
+          alt=""
+        >
+
+        <img
+          class="envelope-image image-opening"
+          src="images/2.svg"
+          alt=""
+        >
+      </div>
+
+      <!-- Requirement: internal SVG created directly in this HTML document. -->
+      <svg
+        class="internal-spark"
+        viewBox="0 0 100 100"
+        aria-hidden="true"
+      >
+        <path
+          class="spark-shape"
+          d="M50 4 L61 39 L96 50 L61 61 L50 96 L39 61 L4 50 L39 39 Z"
+        ></path>
+      </svg>
+
+      <!-- This text is hidden until the envelope opens. -->
+      <div class="invitation-content">
+        <p class="eyebrow">
+          You are invited
+        </p>
+
+        <h1>
+          Halloween<br>
+          <span>Party</span>
+        </h1>
+
+        <p class="description">
+          Join us for a spooky night filled with costumes, music,
+          games, treats and surprises.
+        </p>
+
+        <dl class="event-details">
+          <div>
+            <dt>Date</dt>
+            <dd>31 October</dd>
+          </div>
+
+          <div>
+            <dt>Time</dt>
+            <dd>19:00 until late</dd>
+          </div>
+
+          <div>
+            <dt>Place</dt>
+            <dd>Stockholm</dd>
+          </div>
+        </dl>
+
+        <button id="animateButton" type="button">
+          Open invitation
+        </button>
+
+        <p class="dress-code">
+          Dress code: your best Halloween costume 🎃
+        </p>
+      </div>
+    </section>
   </main>
 
-  <script src="script.js"></script>
+  <!-- Requirement: JavaScript controls the envelope interaction. -->
+  <script src="script/script.js"></script>
 </body>
 </html>
